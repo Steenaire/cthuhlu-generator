@@ -123,7 +123,7 @@ test_title = title.strip.split(" ").uniq
 test_desc = description.strip.split(" ")
 # puts test_title.last
 
-bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR"]
+bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR", "AT", "FROM"]
 
 while (bad_enders.include? test_title.last.upcase)
   test_title.pop
@@ -148,4 +148,4 @@ if price > 12
   price = (price - subt).round(2)
 end
 
-puts "Price: $#{price} Calories: #{calories}"
+puts "Price: $#{'%.2f' % price} Calories: #{calories}"
