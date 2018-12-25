@@ -279,12 +279,12 @@ Build-Your-Own Omelette
 Wild West Omelette
 Ultimate Omelette®
 Loaded Veggie Omelette
-My Hammy & Cheese Omelette
+My Hammy and Cheese Omelette
 Philly Cheesesteak Omelette
 Moons Over My Hammy®
 The Grand Slamwich®
-Country-Fried Steak & Eggs
-T-Bone Steak & Eggs
+Country-Fried Steak and Eggs
+T-Bone Steak and Eggs
 Santa Fe Sizzlin' Skillet
 Supreme Sizzlin' Skillet
 Fit Fare® Veggie Sizzlin' Skillet
@@ -301,7 +301,7 @@ New! Slow-Cooked Pot Roast
 New! Homestyle Meatloaf
 New! Mediterranean Grilled Chicken
 Chicken Strips
-Brooklyn Spaghetti & Meatballs
+Brooklyn Spaghetti and Meatballs
 Crazy Spicy Sizzlin' Skillet
 Bourbon Chicken Sizzlin' Skillet
 New! America's Diner Cheeseburger
@@ -311,3 +311,106 @@ Double Cheeseburger
 Bacon Avocado Cheeseburger
 Bourbon Bacon Burger
 Slamburger
+New! House Salad
+Cobb Salad
+Caesar Salad
+New! Grilled Tuscan Chicken Sandwich
+New! Mega Philly Cheese Melt
+Philly Cheesesteak
+Pattymelt Sandwich
+Cali Club Sandwich
+Club Sandwich
+The Super Bird®
+Pot Roast Melt
+Garlic Peppercorn Sirloin
+Sirloin Steak
+T-Bone Steak
+Country-Fried Steak
+Wild Alaska Salmon
+Tilapia Ranchero
+Red-Skinned Mashed Potatoes
+Bacon Strips
+Sausage Links
+Grilled Ham Slice
+Eggs
+Slices of Toast
+Seasonal Fruit
+French Fries
+Seasoned Fries
+grits
+Buttermilk Biscuits
+English Muffin
+Yogurt
+Oatmeal
+Garden Side Salad
+Sauces and Dressings
+Build Your Own Sundae
+New York Style Cheesecake
+Caramel Apple Pie Crisp
+Chocolate Lava Cake
+Milk Shakes
+Pumpkin Pie Milk Shake
+Premium Craft Pancakes
+Hot Beverages
+Milk
+Juices
+Smoothies
+Premium Lemonades
+
+Iced Teas
+Soft Drinks
+Cold Brew Coffee
+Grilled Tilapia
+Grilled Chicken
+
+Country-Fried Steak
+Grilled Cheese Sandwich and Soup
+Club Sandwich
+Loaded Veggie Omelette
+Belgian Waffle Slam
+Belgian Waffle
+Scrambled Eggs and Cheddar Breakfast
+Eggs in a Basket
+Chicken Loaded Potato Sizzlin' Skillet
+Southern Chicken Slugger™
+Build Your Own Chicken Wraps
+Country-Fried Steak and Eggs Sizzlin' Skillet
+Slice of French Toast
+French Toast Slugger™
+New! Super Slam™
+Loaded Breakfast Sandwich
+Everyday Value Slam®
+Fried Cheese Melt
+Classic BLT
+Kids Beverages
+Jr. OREO® Blender Blaster™
+Jr. Milk Shake
+Jr. Ice Cream
+Build Your Own Jr. Sundae
+Mac and Cheese
+Chicken Nuggets
+Jr. Cheeseburger
+Spaghetti
+Grilled Chicken On A Stick
+Hotdog on a stick
+Jr. French Toast
+Chocolate Chip Pancakes
+Build Your Own Jr. Grand Slam®
+Jr. Cake Batter Milk Shake
+Jr. Strawberry Poppin' Pancake Breakfast
+Fit Fare
+Wild Alaska Salmon
+Sirloin Steak
+Veggie Sizzlin' Skillet
+Tilapia Ranchero
+Loaded Veggie Omelette
+Fit Slam
+Slow-Cooked Pot Roast
+Build-Your-Own Grand Slam®
+Lumberjack Slam®
+All-American Slam®
+Belgian Waffle Slam®
+Fit Slam®
+French Toast Slam®
+Grand Slam Slugger®
+
