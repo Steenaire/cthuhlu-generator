@@ -5,26 +5,21 @@
 # Item description of about 160 characters generated from a mix of menu descriptions and lovecraft text.
 # Calories: N Cost: $N
 
-calories = Random.rand(2000)
-price = Random.rand(100)+Random.rand.round(2)
-
-puts "Price: $#{price}"
-puts "Calories: #{calories}"
-
-all_words_array = []
-
-probabilities_hash = {}
-
 wordcounts = []
 
-randomizer_words_array = []
 
-def trainer
+title_assets = "assets/titles/steen_titles.txt"
+body_assets = "assets/menu_items/steen_bodies.txt"
+
+def trainer(asset_file)
   words_hash = {}
   line_words_array = []
   words_popularity_hash = {}
   opener_words_array = []
-  File.open("assets/titles/steen_titles.txt", 'r') do |file|
+  all_words_array = []
+  probabilities_hash = {}
+
+  File.open(asset_file, 'r') do |file|
     file.each_line do |line|
       # puts line
       line_words_array = line.split(" ")
@@ -47,12 +42,8 @@ def trainer
       end
     end
   end
-  return words_hash, opener_words_array
-end
 
-words_hash, opener_words_array = trainer
-
-words_hash.each do |word, following_words|
+  words_hash.each do |word, following_words|
   # file.write("#{word}\t#{following_words}\n")
   following_words.each do |following_word|
     # float_holder = 1.to_f/following_words.length.to_f
@@ -67,48 +58,60 @@ words_hash.each do |word, following_words|
     end
   end
     all_words_array << word
-end
-
-# Picks an opener from the opening words
-random_word = opener_words_array.sample
-
-# word_count_average = wordcounts.reduce(:+).to_f / wordcounts.size
-word_count_average = 3
-word_count_deviation = Random.rand(4)
-
-# Generates a word count based on the average word count of the documents, then adds or subtracts within a range of -10% and +10%
-word_count = (word_count_average + rand(-word_count_deviation..word_count_deviation)).to_i
-puts word_count
-
-menu_item = File.open("menu_item.txt", 'w')
-
-print "#{random_word.strip.capitalize} "
-menu_item.write("#{random_word.strip.capitalize} ")
-counter = 0
-word_count.times do
-  counter += 1
-
-  if probabilities_hash[random_word]
-    probabilities_hash[random_word].each do |following_word, probability|
-      probability.times do
-        randomizer_words_array << following_word
-      end
-    end
-    if counter == word_count
-      # If it is the last word, strip out all punctuation that may/may not be there, and add a period, just to be safe
-      random_word = "#{randomizer_words_array.sample.gsub(/[^\w\s\d]/, '')}"
-    else
-      random_word = randomizer_words_array.sample
-    end
-    print "#{random_word.chomp(')').chomp('(').strip} "
-    menu_item.write("#{random_word.chomp(')').chomp('(').strip} ")
-    randomizer_words_array = []
-  else
-    random_word = opener_words_array.sample
-    print "#{random_word.strip.capitalize} "
-    menu_item.write("#{random_word.strip.capitalize} ")
   end
+
+  return words_hash, opener_words_array, probabilities_hash
 end
 
-print ("\n")
-menu_item.close
+def wacky_writer(words_hash, opener_words_array, probabilities_hash, word_count_average, word_count_deviation)
+  # Picks an opener from the opening words
+  random_word = opener_words_array.sample
+  randomizer_words_array = []
+  wacky_text = ""
+
+  # word_count_average = wordcounts.reduce(:+).to_f / wordcounts.size
+
+  # Generates a word count based on the average word count of the documents, then adds or subtracts within a range of -10% and +10%
+  word_count = (word_count_average + rand(-word_count_deviation..word_count_deviation)).to_i
+  # puts word_count
+
+  # print "#{random_word.strip.capitalize} "
+  wacky_text << "#{random_word.strip.capitalize} "
+  counter = 0
+  word_count.times do
+    counter += 1
+
+    if probabilities_hash[random_word]
+      probabilities_hash[random_word].each do |following_word, probability|
+        probability.times do
+          randomizer_words_array << following_word
+        end
+      end
+      if counter == word_count
+        # If it is the last word, strip out all punctuation that may/may not be there, and add a period, just to be safe
+        random_word = "#{randomizer_words_array.sample.gsub(/[^\w\s\d]/, '')}"
+      else
+        random_word = randomizer_words_array.sample
+      end
+      # print "#{random_word.chomp(')').chomp('(').strip} "
+      wacky_text << "#{random_word.chomp(')').chomp('(').strip} "
+      randomizer_words_array = []
+    else
+      random_word = opener_words_array.sample
+      # print "#{random_word.strip.capitalize} "
+      wacky_text << "#{random_word.strip.capitalize} "
+    end
+  end
+  return wacky_text
+end
+
+words_hash, opener_words_array, probabilities_hash = trainer(title_assets)
+
+title = wacky_writer(words_hash, opener_words_array, probabilities_hash, 3, 4)
+
+puts "'#{title.upcase.strip}'"
+
+calories = Random.rand(2000)
+price = Random.rand(100)+Random.rand.round(2)
+
+puts "Price: $#{price} Calories: #{calories}"
