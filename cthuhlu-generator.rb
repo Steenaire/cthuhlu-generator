@@ -122,7 +122,7 @@ description = wacky_writer(desc_words_hash, desc_opener_words_array, desc_probab
 test_title = title.strip.split(" ")
 # puts test_title.last
 
-bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH"]
+bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR"]
 
 while bad_enders.include? test_title.last.upcase
   test_title.pop
