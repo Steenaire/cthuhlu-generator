@@ -20,11 +20,14 @@ def trainer(asset_file)
   probabilities_hash = {}
 
   File.open(asset_file, 'r') do |file|
-    file.each_line do |line|
+    file.each_line do |preline|
+      # puts line
+      line = preline.gsub(/[\"]/, '')
       # puts line
       line_words_array = line.split(" ")
       if line_words_array.any?
-        line_words_array.each_with_index do |word, word_index|
+        line_words_array.each_with_index do |preword, word_index|
+          word = preword.gsub(/[\"]/, '')
           if words_hash["#{word}"] && word_index < line_words_array.length-1
             words_popularity_hash["#{word}"] += 1
               words_hash["#{word}"] << line_words_array[word_index+1]
@@ -105,11 +108,15 @@ def wacky_writer(words_hash, opener_words_array, probabilities_hash, word_count_
   return wacky_text
 end
 
-words_hash, opener_words_array, probabilities_hash = trainer(title_assets)
+title_words_hash, title_opener_words_array, title_probabilities_hash = trainer(title_assets)
+desc_words_hash, desc_opener_words_array, desc_probabilities_hash = trainer(body_assets)
 
-title = wacky_writer(words_hash, opener_words_array, probabilities_hash, 3, 4)
+title = wacky_writer(title_words_hash, title_opener_words_array, title_probabilities_hash, 3, 3)
+description = wacky_writer(desc_words_hash, desc_opener_words_array, desc_probabilities_hash, 25, 5)
 
-puts "'#{title.upcase.strip}'"
+puts "'#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}'"
+
+puts "#{description.strip}.\n"
 
 calories = Random.rand(2000)
 price = Random.rand(100)+Random.rand.round(2)
