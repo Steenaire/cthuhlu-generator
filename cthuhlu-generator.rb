@@ -5,7 +5,7 @@
 # Item description of about 160 characters generated from a mix of menu descriptions and lovecraft text.
 # Calories: N Cost: $N
 
-wordcounts = []
+# wordcounts = []
 
 
 title_assets = "assets/titles/steen_titles.txt"
@@ -119,7 +119,7 @@ desc_words_hash, desc_opener_words_array, desc_probabilities_hash = trainer(body
 title = wacky_writer(title_words_hash, title_opener_words_array, title_probabilities_hash, 4, 3)
 description = wacky_writer(desc_words_hash, desc_opener_words_array, desc_probabilities_hash, 20, 5)
 
-test_title = title.strip.split(" ")
+test_title = title.strip.split(" ").uniq
 # puts test_title.last
 
 bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR", "AT", "FROM"]
@@ -144,14 +144,14 @@ description = test_desc.join(" ")
 
 calories = Random.rand(2000)
 price = (Random.rand(60)+Random.rand).round(2)
-if price > 30
-  subt = Random.rand(25)
+if price > 12
+  subt = Random.rand(price.round)
   price = (price - subt).round(2)
 end
 
 # puts "Price: $#{price} Calories: #{calories}"
 
-tweet = "#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}\n#{description.strip}.\nPrice: $#{price} Calories: #{calories}"
+tweet = "#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}\n#{description.strip}.\nPrice: $#{'%.2f' % price} Calories: #{calories}"
 
 puts tweet
 file = File.open("tweet.txt", 'w')
