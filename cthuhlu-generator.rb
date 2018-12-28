@@ -157,3 +157,4 @@ puts tweet
 file = File.open("tweet.txt", 'w')
 
 file.write(tweet)
+file.close
