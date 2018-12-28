@@ -122,9 +122,10 @@ description = wacky_writer(desc_words_hash, desc_opener_words_array, desc_probab
 test_title = title.strip.split(" ")
 # puts test_title.last
 
-bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR"]
+bad_enders = ["THE", "AND", "OF", "IN", "TO", "A", "WITH", "OR", "AT", "FROM"]
 
 while bad_enders.include? test_title.last.upcase
+  break if bad_enders.length <= 1
   test_title.pop
 end
 title = test_title.join(" ")
@@ -132,13 +133,14 @@ title = test_title.join(" ")
 test_desc = description.strip.split(" ")
 
 while bad_enders.include? test_desc.last.upcase
+  break if test_desc.length <= 1
   test_desc.pop
 end
 description = test_desc.join(" ")
 
-puts "#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}\n"
+# puts "#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}\n"
 
-puts "#{description.strip}.\n"
+# puts "#{description.strip}.\n"
 
 calories = Random.rand(2000)
 price = (Random.rand(60)+Random.rand).round(2)
@@ -147,4 +149,11 @@ if price > 30
   price = (price - subt).round(2)
 end
 
-puts "Price: $#{price} Calories: #{calories}"
+# puts "Price: $#{price} Calories: #{calories}"
+
+tweet = "#{title.upcase.strip.gsub(/[^\w\s\d]/, '')}\n#{description.strip}.\nPrice: $#{price} Calories: #{calories}"
+
+puts tweet
+file = File.open("tweet.txt", 'w')
+
+file.write(tweet)
